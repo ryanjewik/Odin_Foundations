@@ -1,0 +1,12 @@
+.container .text{
+    font-size: 20px;
+    background-color: yellow;
+    color: red;
+    text-align: center;
+}
+
+/* Below are some other possible descendant combinators:
+div p
+div .text
+.container p
+*/

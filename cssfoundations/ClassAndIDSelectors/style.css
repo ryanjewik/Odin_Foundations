@@ -1,0 +1,17 @@
+#two{
+    color:  blue;
+    font-size: 36px;
+}
+#three{
+    font-size: 24px;
+}
+#four{
+    background-color: lightgreen;
+    font-size: 24px;
+    font-weight: 700;
+}
+p{
+    color:black;
+    background-color: pink;
+    font-family: "Verdana";
+}
