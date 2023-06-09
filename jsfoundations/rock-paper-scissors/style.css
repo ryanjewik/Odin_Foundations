@@ -3,12 +3,14 @@ body{
     color: slategrey;
 }
 .results{
+    font-size: 40px;
     background-color: rgb(111, 172, 221);
     padding: 40px;
     margin-bottom: 20px;
     justify-content: space-between;
     display: flex;
     color: white;
+    border-color: white;
 }
 .User-Choices{
     
@@ -34,4 +36,27 @@ button{
     background-color: #75859b;
     color: white;
     padding: 10px;
+}
+.footer{
+    text-align: center;
+    align-items: center;
+    background-color: #75859b;
+    color: white;
+    padding: 10px;
+}
+
+.commentator{
+    font-size: 15px;
+    border-color: white;
+    background-color: rgb(111, 172, 221);
+    padding: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+.subheadings{
+    font-size: 20px;
+    font-weight: 200;
+    padding: 5px;
 }

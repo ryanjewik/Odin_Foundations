@@ -29,20 +29,46 @@
         
         </div>
 
+        <div class = "commentator">
+            <div class = "subheadings"> User Choice:</div>
+                <div id = "user-choice">
+                    Will you choose Rock, Paper, or Scissors?
+                </div>
+            
+            <div class = "subheadings"> CPU Choice:</div>
+            
+                <div id = "cpu-choice">
+                    What will the computer choose?
+                </div>
+            
+            <div class = "subheadings"> Info:</div>
+                <div id = "commentary">
+                    Have Fun!
+                </div>
+            
+        </div>
+
         <div class = "results">
             <div class = "results">
                 <div> User Score: </div>
-                <div class = "user-score"> 0 </div>
+                <div id = "user-score"> 0 </div>
             </div>
             <div class = "results">
                 <div> Computer Score: </div>
-                <div class = "cpu-score"> 0 </div>
+                <div id = "cpu-score"> 0 </div>
             </div>
             <div class = "results">
                 <div> Draws: </div>
-                <div class = "draw-count"> 0 </div>
+                <div id = "draw-count"> 0 </div>
             </div>
         </div>
+        <div class="footer">
+            <div id = "final-message">
+                <p> Who Will Win?</p>
+            </div>
+            <button type="button" onclick="resetGame()">Restart</button>
+        </div>
+        
     </body>
 </html>
 <script>
@@ -50,6 +76,7 @@
     let winCount = 0;
     let lossCount = 0;
 
+    //this gets the cpu choice by randomly choosing a number which determines its choice
     function getComputerChoice(){
         //will return rock, paper, or scissors
         let cpuOutput = Math.floor(Math.random()*3);
@@ -65,82 +92,97 @@
 
     }
     
-
+    //this plays the round by comparing the user and cpu choice then returns a message whilst updating the score
     function playRound(playerSelection, computerSelection){
+
+        document.getElementById('cpu-choice').innerText = computerSelection;
+        document.getElementById('user-choice').innerText = playerSelection;
+
         console.log("Computer choice: " + computerSelection);
         console.log("Your input: " + playerSelection);
         if (playerSelection === computerSelection){
-  
             drawCount ++;
+            document.getElementById('draw-count').innerText = drawCount;
+            document.getElementById('commentary').innerText = "You Both Chose The Same! Draw! \n";
             return "Draw";
-
         }
         else if ((playerSelection === "Rock") && (computerSelection==="Paper")){
-
             lossCount ++;
+            document.getElementById('cpu-score').innerText = lossCount;
+            document.getElementById('commentary').innerText = "You Lose! Paper beats Rock \n";
             return "You Lose! Paper beats Rock \n";
         }
         else if ((playerSelection === "Paper") && (computerSelection==="Rock")){
-            
             winCount ++;
+            document.getElementById('user-score').innerText = winCount;
+            document.getElementById('commentary').innerText = "You Win! Paper beats Rock \n";
             return "You Win! Paper beats Rock \n";
         }
         else if ((playerSelection === "Rock") && (computerSelection==="Scissors")){
             winCount ++;
+            document.getElementById('user-score').innerText = winCount;
+            document.getElementById('commentary').innerText = "You Win! Rock beats Scissors \n";
             return "You Win! Rock beats Scissors";
-            
         }
         else if ((playerSelection === "Scissors") && (computerSelection==="Rock")){
             lossCount ++;
+            document.getElementById('cpu-score').innerText = lossCount;
+            document.getElementById('commentary').innerText = "You Lose! Rock beats Scissors \n";
             return "You Lose! Rock beats Scissors";
-            
         }
         else if ((playerSelection === "Scissors") && (computerSelection==="Paper")){
             winCount ++;
+            document.getElementById('user-score').innerText = winCount;
+            document.getElementById('commentary').innerText = "You Win! Scissors beats Paper \n";
             return "You Win! Scissors beats Paper";
-            
         }
         else if ((playerSelection === "Paper") && (computerSelection==="Scissors")){
             lossCount ++;
+            document.getElementById('cpu-score').innerText = lossCount;
+            document.getElementById('commentary').innerText = "You Lose! Scissors beats Paper \n";
             return "You Lose! Scissors beats Paper";
             
         }else{
             lossCount ++;
+            document.getElementById('cpu-score').innerText = lossCount;
+            document.getElementById('commentary').innerText = "Error! Invalid input so you will be given a loss! \n";
             return "Error! Invalid input so you will be given a loss!";
         }
-        
-        
     }
 
     function game(userChoice){
-        /*
-        const playerSelection = "Rock";
-        const computerSelection = getComputerChoice();
-        console.log(computerSelection);
-        console.log(playRound(playerSelection,computerSelection));
-        */
-
-        
-        //for (i = 0; i < 5; i++){
-            //let userChoice = prompt("Enter your choice");
+        if(winCount != 5 && lossCount != 5){
             userChoice = userChoice.charAt(0).toUpperCase() + userChoice.slice(1).toLowerCase();
-            //cpuChoice = getComputerChoice();
             console.log(playRound(userChoice, getComputerChoice()));
             console.log("Record: " + winCount + "-" + lossCount + "-" + drawCount);
-        //}
+        }
         
-        if(winCount > lossCount){
+        if(winCount == 5 || lossCount == 5 ){
+            if(winCount > lossCount){
                 console.log("You win the game!");
-            }
-            else if(winCount < lossCount){
-                console.log("You lose the game!");
+                document.getElementById('final-message').innerHTML = "You Win! Congrats!";
+                document.getElementById('final-message').style.color = 'green';
             }
             else{
-                console.log("The game is a draw!");
+                document.getElementById('final-message').innerHTML = "You Lose! Better Luck Next Time!";
+                document.getElementById('final-message').style.color = 'red';
             }
+        }
+    }
+
+    function resetGame(){
+        winCount = 0;
+        lossCount = 0;
+        drawCount = 0;
+        document.getElementById('final-message').innerHTML = "Who Will Win?";
+        document.getElementById('final-message').style.color = 'white';
+        document.getElementById('cpu-score').innerText = 0;
+        document.getElementById('user-score').innerText = 0;
+        document.getElementById('draw-count').innerText = 0;
+        document.getElementById('commentary').innerText = "Game Restarted!";
+        document.getElementById('cpu-choice').innerText = "Will you choose Rock, Paper, or Scissors?";
+        document.getElementById('user-choice').innerText = "What will the computer choose?";
     }
     
-    
-
 </script>
     
