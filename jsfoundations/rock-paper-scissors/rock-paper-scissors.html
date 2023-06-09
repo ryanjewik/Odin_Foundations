@@ -3,7 +3,7 @@
     <head>
         <meta charset = "utf-8">
         <title> Rock Paper Scissors</title>
-
+        <link rel="stylesheet" href = "style.css">
         <style>
             html{
                 font-family: Tahoma;
@@ -15,12 +15,34 @@
         </style>
     </head>
     <body>
-        <h1>Rock Paper Scissors</h1>
-        <p>Press the Start Button to begin!</p>
+        <div class = heading>
+            <h1 style = "font-weight: 400; font-size: 50px;">Rock Paper Scissors</h1>
+            <p style = "font-size: 30px;">First to 5 wins!</p>
+        </div>
         
-        <form>
-            <input type = "button" onclick="game()">
-        </form>
+        
+        <div class = "User-Choices">
+            
+            <button type="button" onclick="game('Rock')">Rock</button>
+            <button type="button" onclick="game('Paper')">Paper</button>
+            <button type="button" onclick="game('Scissors')">Scissors</button>
+        
+        </div>
+
+        <div class = "results">
+            <div class = "results">
+                <div> User Score: </div>
+                <div class = "user-score"> 0 </div>
+            </div>
+            <div class = "results">
+                <div> Computer Score: </div>
+                <div class = "cpu-score"> 0 </div>
+            </div>
+            <div class = "results">
+                <div> Draws: </div>
+                <div class = "draw-count"> 0 </div>
+            </div>
+        </div>
     </body>
 </html>
 <script>
@@ -90,7 +112,7 @@
         
     }
 
-    function game(){
+    function game(userChoice){
         /*
         const playerSelection = "Rock";
         const computerSelection = getComputerChoice();
@@ -99,13 +121,13 @@
         */
 
         
-        for (i = 0; i < 5; i++){
-            let userChoice = prompt("Enter your choice");
+        //for (i = 0; i < 5; i++){
+            //let userChoice = prompt("Enter your choice");
             userChoice = userChoice.charAt(0).toUpperCase() + userChoice.slice(1).toLowerCase();
             //cpuChoice = getComputerChoice();
             console.log(playRound(userChoice, getComputerChoice()));
             console.log("Record: " + winCount + "-" + lossCount + "-" + drawCount);
-        }
+        //}
         
         if(winCount > lossCount){
                 console.log("You win the game!");
@@ -117,6 +139,7 @@
                 console.log("The game is a draw!");
             }
     }
+    
     
 
 </script>

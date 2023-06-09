@@ -1,0 +1,37 @@
+body{
+    background-color: rgb(211, 199, 184);
+    color: slategrey;
+}
+.results{
+    background-color: rgb(111, 172, 221);
+    padding: 40px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    display: flex;
+    color: white;
+}
+.User-Choices{
+    
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+button{
+    background-color: rgb(240, 240, 167);
+    color: slategrey;
+    padding: 15px 50px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 200;
+}
+.heading{
+    text-align: center;
+    align-items: center;
+    background-color: #75859b;
+    color: white;
+    padding: 10px;
+}
